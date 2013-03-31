@@ -38,8 +38,24 @@ class FooditemsController < ApplicationController
     @fooditem.score += params[:score].to_i
     @fooditem.totalvotes += 1.to_i
     @fooditem.save
-    render fooditems_path
+    respond_to do |format|
+      if @fooditem.save(params[:score])
+        format.html { redirect_to @fooditem, :notice => 'Your vote went through successfully.' }
+        format.json { head :no_content }
+      else
+        format.html { render :action => "edit" }
+        format.json { render :json => @fooditem.errors, :status => :unprocessable_entity }
+      end
+    end
   end
+
+def relative_support
+  (self.score / self.totalvotes).to_i
+end
+
+def self.sorted_by_relative_support
+  Fooditems.all.sort_by(&:relative_support).reverse
+end
 
   # POST /fooditems
   # POST /fooditems.json

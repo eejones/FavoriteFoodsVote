@@ -14,6 +14,10 @@ class SharedController < ApplicationController
     @fooditem.score += params[:score].to_i
     @fooditem.totalvotes += 1.to_i
     @fooditem.save
-    render home
+    @fooditems=Fooditem.all
+    respond_to do |format|
+        format.html { redirect_to fooditems_path(@fooditem) }
+        format.json
+    end
   end
 end
