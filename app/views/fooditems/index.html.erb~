@@ -7,7 +7,7 @@
     <th align="left">Name</th>
     <th align="left">Score</th>
     <th></th>
-    <th align="left">Total Voters</th>
+    <th align="left">Total Votes</th>
     <th></th>
     <th></th>
     <th></th>
@@ -28,7 +28,7 @@
     <td><%= fooditem.score %></td>
     <td></td>
     <td><%= fooditem.totalvotes %></td>
-    <td><%= fooditem.id %></td>
+    <td></td>
     <td><%= link_to 'Show', fooditem %></td>
     <td><%= link_to 'Remove Item', fooditem, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
     <td><%= link_to 'Vote this food up', edit_shared_path(:fooditem_id=> fooditem.id, :score => 1 ), :remote => true %></td>
