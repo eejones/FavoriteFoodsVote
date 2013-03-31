@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @fooditem.name %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%= @fooditem.score %>
+</p>
+
+<p>
+  <b>Totalvotes:</b>
+  <%= @fooditem.totalvotes %>
+</p>
+
+
+<%= link_to 'Edit', edit_fooditem_path(@fooditem) %> |
+<%= link_to 'Back', fooditems_path %>

@@ -1,0 +1,43 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
+<h1>Listing fooditems</h1>
+
+<table>
+
+  <tr>
+    <th align="left">Name</th>
+    <th align="left">Score</th>
+    <th></th>
+    <th align="left">Total Votes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+<COLGROUP>
+   <COL width="100">
+   <COL width="50">
+   <COL width="25">
+   <COL width="40">
+   <COL width="25">
+   <COL width="100">
+   <COL width="100">
+   <COL width="100">
+
+<% @fooditems.each do |fooditem| %>
+  <tr>
+    <td><%= fooditem.name %></td>
+    <td><%= fooditem.score %></td>
+    <td></td>
+    <td><%= fooditem.totalvotes %></td>
+    <td></td>
+    <td><%= link_to 'Show', fooditem %></td>
+    <td><%= link_to 'Remove Item', fooditem, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+    <td><%= link_to 'Vote this food up', edit_shared_path(:fooditem_id=> fooditem.id, :score => 1 ), :remote => true %></td>
+    <td><%= link_to 'Vote this food down', edit_shared_path(:fooditem_id=>fooditem.id, :score => -1) , :remote => true %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<br />
+
+<%= link_to 'Add a New Fooditem', new_fooditem_path %>

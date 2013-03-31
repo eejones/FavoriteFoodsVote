@@ -1,0 +1,15 @@
+  <p>
+    <b>Date:</b>
+    <%= datelog.daylog %>
+  </p>
+
+  <p>
+    <b>Time logged:</b>
+    <%= datelog.timelogs.sum('hourlog') %>
+  </p>
+
+  <p>
+    <%= link_to 'Remove Date',[datelog.employee, datelog],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+  </p>
