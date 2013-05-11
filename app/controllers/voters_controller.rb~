@@ -82,14 +82,17 @@ class VotersController < ApplicationController
         fooditem.score = 1
         fooditem.save
         render :text => fooditem.score
+        redirect_to fooditems_path
       elsif check.value == false
         check.value = true
         check.save
         fooditem.score = 2
         fooditem.save
         render :text => fooditem.score
+        redirect_to fooditems_path
       else
         render :text => "You have already voted up for this item."
+        redirect_to fooditems_path
 
 #        fooditem.score=fooditem.score + 1
 #      voter.fooditem_id = params[:id]

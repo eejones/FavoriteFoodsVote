@@ -2,12 +2,7 @@ class FooditemsController < ApplicationController
   # GET /fooditems
   # GET /fooditems.json
   def index
-    #@fooditems = Fooditem.all
     @fooditems = Fooditem.find(:all, :limit => 50, :order => [" score DESC"])
-#    respond_to do |format|
- #     format.html # index.html.erb
-  #    format.json { render :json => @fooditems }
-   # end
   end
 
   # GET /fooditems/1
@@ -124,6 +119,4 @@ end
     fooditem.save
     render :text => fooditem.score
   end
-
-
 end

@@ -1,9 +1,10 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript"></script>
-<h1>Listing fooditems</h1>
+<h1>Favorite Food Totals</h1>
 
 <table>
 
   <tr>
+    <th align="left">Rank</th>
     <th align="left">Name</th>
     <th align="left">Score</th>
     <th></th>
@@ -13,6 +14,7 @@
     <th></th>
     <th></th>
 <COLGROUP>
+   <COL width="50">
    <COL width="100">
    <COL width="50">
    <COL width="25">
@@ -21,9 +23,11 @@
    <COL width="100">
    <COL width="100">
    <COL width="100">
+   <COL width="5">
 
-<% @fooditems.each do |fooditem| %>
+<% @fooditems.each_with_index do |fooditem,i| %>
   <tr>
+    <td><%= (i+1) %></td>
     <td><%= fooditem.name %></td>
     <td><%= fooditem.score %></td>
     <td></td>
@@ -32,6 +36,7 @@
     <td><%= link_to 'Show', fooditem %></td>
     <td><%= link_to 'Remove Item', fooditem, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
     <td><%= link_to 'Vote this food up', edit_shared_path(:fooditem_id=> fooditem.id, :score => 1 ), :remote => true %></td>
+    <td> |<td/>
     <td><%= link_to 'Vote this food down', edit_shared_path(:fooditem_id=>fooditem.id, :score => -1) , :remote => true %></td>
   </tr>
 <% end %>

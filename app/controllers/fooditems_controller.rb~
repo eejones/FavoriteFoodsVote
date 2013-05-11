@@ -46,6 +46,7 @@ class FooditemsController < ApplicationController
         format.html { render :action => "edit" }
         format.json { render :json => @fooditem.errors, :status => :unprocessable_entity }
       end
+    end
   end
 
 def relative_support

@@ -16,7 +16,7 @@ class SharedController < ApplicationController
     @fooditem.save
     @fooditems=Fooditem.all
     respond_to do |format|
-        format.html { redirect_to fooditems_path }
+        format.html { redirect_to fooditems_path(@fooditem) }
         format.json
     end
   end

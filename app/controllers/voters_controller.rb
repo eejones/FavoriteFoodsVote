@@ -93,26 +93,6 @@ class VotersController < ApplicationController
       else
         render :text => "You have already voted up for this item."
         redirect_to fooditems_path
-
-#        fooditem.score=fooditem.score + 1
-#      voter.fooditem_id = params[:id]
- #     voter.user_id = session[:user_id]
- #     voter.value = true
-  #    voter.save
-   #   fooditem.score += 1
-    #  fooditem.votes += 1
-     # fooditem.save
-      #render :text => fooditem.score
- #   elsif check.value == false
- #     voter = Voter.new
- #     check.value = true
- #     check.save
- #     fooditem.score += 2
- #     fooditem.votes += 2
- #     fooditem.save
- #     render :text => fooditem.score
- #   else
- #     render :text => "You have already voted up for this fooditem."
     end
   end
 

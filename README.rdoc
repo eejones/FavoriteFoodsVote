@@ -1,2 +1,0 @@
-====Guide=====
-This program allows users to vote on foods that they like and dislike. The actually voting mechanism is written into the code, it doesn't use any gems for voting. Foods are then ranked in order of how much people like them. Users can add different types of food to vote on as well. If any of the voting gets out of hand, the food item can later be removed.
